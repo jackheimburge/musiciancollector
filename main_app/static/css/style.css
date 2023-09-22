@@ -18,3 +18,7 @@ body {
   nav {
     background-color: #12486B;
   }
+
+  .row {
+    margin-top: 5vmin;
+  }
