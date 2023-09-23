@@ -1,15 +1,16 @@
 {% extends 'base.html' %}
 {% block content %}
 
-<h1 class="center-align">All Musicians</h1>
+<h1 class="center-align">All Bands</h1>
 <div class="row ">
-{% for musician in musicians %}
+{% for band in bands %}
     <div class="card col s8 offset-s2">
         <div class="card-content">
-            <h3 class="center-align">{{ musician.name }}</h3>
-            <p>Age: {{ musician.age }}</p>
-            <p>Role: {{ musician.role }}</p>
-            <p>About: {{ musician.description }}</p>
+            <h3 class="center-align">{{ band.name }}</h3>
+            <p>Genre: {{ band.genre }}</p>
+            <p>Formed: {{ band.formed }}</p>
+            <hr>
+            <p>{{ band.description }}</p>
         </div>
     </div>
 {% endfor %}

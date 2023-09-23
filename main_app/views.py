@@ -1,9 +1,9 @@
 from django.shortcuts import render
 
-musicians = [
-  {'name': 'Thom Yorke', 'age': '54', 'role': 'vocalist, songwriter', 'description': 'The main vocalist and songwriter of the rock band Radiohead.'},
-  {'name': 'Kevin Parker', 'age': '37', 'role': 'songwriter, multi-instrumentalist', 'description': 'An Australian singer, songwriter, multi-instrumentalist, musician, record producer, and DJ, best known for his musical project Tame Impala.'},
-  {'name': 'Lana Del Rey', 'age': '38', 'role': 'singer/songwriter', 'description': 'an American singer-songwriter. Her music is noted for its cinematic quality and exploration of tragic romance, glamour, and melancholia, with frequent references to contemporary pop culture and 1950s–1970s Americana.'},
+bands = [
+  {'name': 'Radiohead', 'genre': 'Experimental Rock', 'formed': '1985', 'description': 'Radiohead is an English rock band formed in Abingdon, Oxfordshire, in 1985. The band consists of Thom Yorke (vocals, guitar, piano, keyboards); the brothers Jonny Greenwood (guitar, keyboards, other instruments) and Colin Greenwood (bass); Ed O Brien (guitar, backing vocals); and Philip Selway (drums, percussion).'},
+  {'name': 'Tame Impala', 'genre': 'Psychedelic Pop', 'formed': '2007', 'description': 'Tame Impala is the psychedelic music project of Australian multi-instrumentalist Kevin Parker. In the recording studio, Parker writes, records, performs, and produces all of Tame Impala music. As a touring act, Tame Impala consists of Parker (vocals, guitar, synthesizer), Dominic Simper (guitar, synthesiser), Jay Watson (synthesiser, vocals, guitar), Cam Avery (bass guitar, vocals, synthesizer), and Julien Barbagallo (drums, vocals).'},
+  {'name': 'Grizzly Bear', 'genre': 'Art Rock', 'formed': '2002', 'description': 'Grizzly Bear is an American rock band from Brooklyn, New York, formed in 2002. For most of its tenure, the band has consisted of Edward Droste (vocals, keyboards, guitar), Daniel Rossen (vocals, guitar, banjo, keyboards), Chris Taylor (bass, backing vocals, woodwinds, production), and Christopher Bear (drums, percussion, backing vocals).'},
 ]
 
 # Create your views here.
@@ -16,5 +16,5 @@ def about(request):
 
 def musicians_index(request):
     return render(request, 'musicians/index.html', {
-        'musicians': musicians
+        'bands': bands
     })
