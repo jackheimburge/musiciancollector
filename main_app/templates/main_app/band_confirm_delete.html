@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+{% block content%}
+
+<h4>Please confirm that you want to delete the band <span class="red-text darken-2">{{object.name}}</span></h4>
+<form action="" method="POST">
+    {% csrf_token %}
+    <input type="submit" value="CONFIRM DELETE" class="btn red darken-2">
+    <a href="{% url 'detail' object.id %}">Cancel</a>
+  </form>
+{% endblock %}

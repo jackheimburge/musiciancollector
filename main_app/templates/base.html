@@ -18,8 +18,9 @@
           <li><a href="/" class="left brand-logo">&nbsp;&nbsp;Band Collector</a></li>
         </ul>
         <ul class="right">
-          <li><a href="/about">About</a></li>
-          <li><a href="/bands">Bands </a></li>
+          <li><a href="{% url 'about' %}">About</a></li>
+          <li><a href="{% url 'bands_index' %}">Bands </a></li>
+          <li><a href="{% url 'bands_create' %}">Add A Band </a></li>
         </ul>
       </div>
     </nav>

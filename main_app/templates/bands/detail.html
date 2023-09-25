@@ -7,6 +7,10 @@
         <p>Genre: {{band.genre}}</p>
         <p>Description: {{band.description}}</p>
     </div>
+    <div class="card-action">
+        <a href="{% url 'band_update' band.id %}">Edit</a>
+        <a href="{% url 'band_delete' band.id %}">Delete</a>
+    </div>
 </div>
 
 {% endblock %}
