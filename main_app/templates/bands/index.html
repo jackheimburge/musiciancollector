@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<h1 class="center-align">All Bands</h1>
+<div class="row ">
+{% for band in bands %}
+    <div class="card col s8 offset-s2">
+        <a href="{% url 'detail' band.id %}">
+            <div class="card-content">
+                <h3 class="center-align">{{ band.name }}</h3>
+                <p>Genre: {{ band.genre }}</p>
+                <hr>
+                <p>{{ band.description }}</p>
+            </div>
+        </a>
+    </div>
+{% endfor %}
+</div>
+{% endblock %}
