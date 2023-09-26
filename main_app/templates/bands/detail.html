@@ -1,16 +1,50 @@
 {% extends 'base.html' %}
 {% block content %}
-<h1 class="center-align">Band Info</h1>
-<div class="card">
-    <div class="card-content">
+
+<h1>Band Details</h1>
+
+<div class="row">
+  <div class="col s6">
+    <div class="card">
+      <div class="card-content">
         <span class="card-title">{{ band.name }}</span>
-        <p>Genre: {{band.genre}}</p>
-        <p>Description: {{band.description}}</p>
-    </div>
-    <div class="card-action">
+        <p>Genre: {{ band.genre }}</p>
+        <p>{{ band.description|linebreaks }}</p>
+      </div>
+      <div class="card-action">
         <a href="{% url 'band_update' band.id %}">Edit</a>
         <a href="{% url 'band_delete' band.id %}">Delete</a>
+      </div>
     </div>
+  </div>
+  <div class="col s6">
+    <form action="{% url 'add_musician' band.id %}" method="POST">
+      {% csrf_token %}
+      {{ musician_form.as_p }}
+      <input type="submit" class="btn" value="Add Musician">
+    </form>
+    <br>
+    
+      <div class="card-panel center-align purple-text">{{ band.name }} currently has {{band.musician_set.count}} band members</div>
+    
+    <table class="striped">
+      <thead>
+        <tr><th>Name</th><th>Primary Instrument</th></tr>
+      </thead>
+      <tbody>
+        {% for musician in band.musician_set.all %}
+          <tr>
+            <td>{{musician.name}}</td>
+            <td>{{musician.get_instrument_display}}</td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
 </div>
 
+<script>
+  const selectEl = document.getElementById('id_instrument');
+  M.FormSelect.init(selectEl);
+</script>
 {% endblock %}

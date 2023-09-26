@@ -8,5 +8,6 @@ urlpatterns = [
     path('bands/<int:band_id>/', views.bands_detail, name='detail'),
     path('bands/create/', views.BandCreate.as_view(), name='bands_create'),
     path('bands/<int:pk>/update', views.BandUpdate.as_view(), name='band_update'),
-    path('bands/<int:pk>/delete', views.BandDelete.as_view(), name='band_delete')
+    path('bands/<int:pk>/delete', views.BandDelete.as_view(), name='band_delete'),
+    path('bands/<int:band_id>/add_musician/', views.add_musician, name='add_musician'),
 ]
