@@ -11,10 +11,20 @@ INSTRUMENTS = (
     ('o', 'Other')
 )
 
+class Award(models.Model):
+    name = models.CharField(max_length=50)
+    
+    def __str__(self):
+        return self.name
+    
+    def get_absolute_url(self):
+        return reverse('awards_detail', kwargs={'pk': self.id})
+
 class Band(models.Model):
     name = models.CharField(max_length=100)
     genre = models.CharField(max_length=100)
     description = models.TextField(max_length=500)
+    awards = models.ManyToManyField(Award)
 
     def __str__(self):
         return f'{self.name}, ({self.id})'
